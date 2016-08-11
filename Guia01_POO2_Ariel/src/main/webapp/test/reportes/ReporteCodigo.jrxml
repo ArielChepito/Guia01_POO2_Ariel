@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteCodigo" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="26827fac-a1e5-433e-b25c-b0dc087d8f34">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CODIGO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     unid_orga.`CODI_UNID_ORGA` AS unid_orga_CODI_UNID_ORGA,
+     unid_orga.`NOMB_UNID_ORGA` AS unid_orga_NOMB_UNID_ORGA,
+     unid_orga.`TELE_UNID_ORGA` AS unid_orga_TELE_UNID_ORGA
+FROM
+     `unid_orga` unid_orga
+WHERE 
+CODI_UNID_ORGA = $P{CODIGO}]]>
+	</queryString>
+	<field name="unid_orga_CODI_UNID_ORGA" class="java.lang.Long"/>
+	<field name="unid_orga_NOMB_UNID_ORGA" class="java.lang.String"/>
+	<field name="unid_orga_TELE_UNID_ORGA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="97" splitType="Stretch">
+			<staticText>
+				<reportElement x="132" y="0" width="315" height="64" uuid="51fdcf64-108d-4e38-9cdc-43f13b425a96"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[Reporte de unidad]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="247" y="64" width="100" height="20" uuid="76c31159-3479-4f11-910b-f9206d9a53f8"/>
+				<textFieldExpression><![CDATA[$P{CODIGO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="147" y="64" width="100" height="20" uuid="9d66f3f2-0bde-4f4e-811c-fe4da2a7657e"/>
+				<text><![CDATA[Codigo de la unidad:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="92" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="2" width="100" height="20" uuid="3eeec965-1666-4c35-9abd-521183887e1f"/>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="2" width="100" height="20" uuid="9a9db41f-d49b-4098-894e-939ecd458ea6"/>
+				<textFieldExpression><![CDATA[$F{unid_orga_CODI_UNID_ORGA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="41" width="100" height="20" uuid="bb8a5e86-a396-4e64-b087-058efcb4ca66"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="41" width="100" height="20" uuid="aa666df2-9a50-432b-8f45-d2030e3b351b"/>
+				<textFieldExpression><![CDATA[$F{unid_orga_NOMB_UNID_ORGA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="72" width="100" height="20" uuid="0a77b9bb-043b-4663-af1b-fa27e20f06f8"/>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="72" width="100" height="20" uuid="c8b41129-c717-42a1-af07-b63a6c26a6d9"/>
+				<textFieldExpression><![CDATA[$F{unid_orga_TELE_UNID_ORGA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
